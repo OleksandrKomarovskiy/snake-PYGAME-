@@ -4,13 +4,16 @@ import sys
 
 pygame.init()
 
-WIDTH = 600
-HEIGHT = 600
-CELL = 30
+info = pygame.display.Info()
+
+WIDTH = info.current_w
+HEIGHT = info.current_h
+
+CELL = 55
 COLS = WIDTH // CELL
 ROWS = HEIGHT // CELL
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("Змійка")
 clock = pygame.time.Clock()
 
@@ -112,9 +115,9 @@ def draw_pear(pos, is_bomb):
 
 
 def menu():
-    btn_play = Button(WIDTH // 2 - 100, 250, 200, 60, "Грати")
-    btn_settings = Button(WIDTH // 2 - 100, 330, 200, 60, "Налаштування")
-    btn_quit = Button(WIDTH // 2 - 100, 410, 200, 60, "Вихід")
+    btn_play = Button(WIDTH // 2 - 140, HEIGHT//2 - 90, 280, 70, "Грати")
+    btn_settings = Button(WIDTH // 2 - 140, HEIGHT//2, 280, 70, "Налаштування")
+    btn_quit = Button(WIDTH // 2 - 140, HEIGHT//2 + 90, 280, 70, "Вихід")
 
     while True:
         for event in pygame.event.get():
